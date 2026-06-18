@@ -1,0 +1,134 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#121212;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:95%;
+    max-width:1400px;
+    min-height:90vh;
+    background:#1c1c1c;
+    border-radius:25px;
+    overflow:hidden;
+    display:flex;
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+.left{
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#181818;
+}
+
+.left img{
+    width:90%;
+    max-height:80vh;
+    object-fit:contain;
+}
+
+.right{
+    width:50%;
+    padding:50px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.right h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#bdbdbd;
+    margin-bottom:30px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+input,
+select{
+    width:100%;
+    padding:16px;
+    background:#252525;
+    border:1px solid #444;
+    color:white;
+    border-radius:12px;
+    font-size:15px;
+}
+
+.full-width{
+    grid-column:1 / span 2;
+}
+
+button{
+    margin-top:25px;
+    width:100%;
+    padding:18px;
+    background:#dc2626;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:20px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#b91c1c;
+}
+
+.result-card{
+    background:#202020;
+    border:1px solid #333;
+    border-left:6px solid #dc2626;
+    border-radius:18px;
+    padding:30px;
+}
+
+.result-card p{
+    margin-bottom:15px;
+    font-size:17px;
+}
+
+.price{
+    text-align:center;
+    font-size:55px;
+    color:#dc2626;
+    margin-top:25px;
+    font-weight:bold;
+}
+
+.again{
+    margin-top:25px;
+    display:block;
+    text-align:center;
+    background:#dc2626;
+    color:white;
+    text-decoration:none;
+    padding:16px;
+    border-radius:12px;
+    font-size:18px;
+}
+
+.again:hover{
+    background:#b91c1c;
+}

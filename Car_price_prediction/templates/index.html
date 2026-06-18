@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Predictor</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT SIDE : CAR IMAGE -->
+
+    <div class="left">
+
+        <img src="{{ url_for('static', filename='car.png') }}"
+             alt="Car Image">
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div class="right">
+
+        {% if prediction %}
+
+        <!-- RESULT PAGE -->
+
+        <h2>Prediction Result</h2>
+
+        <div class="result-card">
+
+            <p>
+                <strong>Present Price:</strong>
+                {{ present_price }} Lakhs
+            </p>
+
+            <p>
+                <strong>Kilometers Driven:</strong>
+                {{ kms_driven }}
+            </p>
+
+            <p>
+                <strong>Manufacturing Year:</strong>
+                {{ manufacturing_year }}
+            </p>
+
+            <p>
+                <strong>Owner Count:</strong>
+                {{ owner }}
+            </p>
+
+            <p>
+                <strong>Fuel Type:</strong>
+                {{ fuel_type }}
+            </p>
+
+            <p>
+                <strong>Seller Type:</strong>
+                {{ seller_type }}
+            </p>
+
+            <p>
+                <strong>Transmission:</strong>
+                {{ transmission }}
+            </p>
+
+            <hr>
+
+            <div class="price">
+
+                ₹ {{ prediction }} Lakhs
+
+            </div>
+
+        </div>
+
+        <a href="/" class="again">
+
+            Predict Another Car
+
+        </a>
+
+        {% else %}
+
+        <!-- FORM PAGE -->
+
+        <h2>Estimate Your Car's Value</h2>
+
+        <p class="subtitle">
+
+            Fill in the details below to get an instant prediction.
+
+        </p>
+
+        <form action="/predict" method="POST">
+
+            <div class="form-grid">
+
+                <!-- Present Price -->
+
+                <input type="number"
+                       step="0.01"
+                       name="present_price"
+                       placeholder="Present Price (Lakhs)"
+                       required>
+
+                <!-- Kms Driven -->
+
+                <input type="number"
+                       name="kms_driven"
+                       placeholder="Kilometers Driven"
+                       required>
+
+                <!-- Manufacturing Year -->
+
+                <input type="number"
+                       name="manufacturing_year"
+                       placeholder="Manufacturing Year"
+                       required>
+
+                <!-- Owner -->
+
+                <input type="number"
+                       name="owner"
+                       placeholder="Owner Count"
+                       required>
+
+                <!-- Fuel Type -->
+
+                <select name="fuel_type">
+
+                    <option value="Petrol">
+                        Petrol
+                    </option>
+
+                    <option value="Diesel">
+                        Diesel
+                    </option>
+
+                    <option value="CNG">
+                        CNG
+                    </option>
+
+                </select>
+
+                <!-- Seller Type -->
+
+                <select name="seller_type">
+
+                    <option value="Dealer">
+                        Dealer
+                    </option>
+
+                    <option value="Individual">
+                        Individual
+                    </option>
+
+                </select>
+
+                <!-- Transmission -->
+
+                <select name="transmission"
+                        class="full-width">
+
+                    <option value="Manual">
+                        Manual
+                    </option>
+
+                    <option value="Automatic">
+                        Automatic
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button type="submit">
+
+                Predict Price
+
+            </button>
+
+        </form>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
